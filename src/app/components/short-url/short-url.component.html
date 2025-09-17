@@ -1,3 +1,6 @@
+<div *ngIf="mostrarError" class="alert alert-dismissible alert-danger">
+  <strong>{{ textError | uppercase }}</strong>
+</div>
 <div class="container mt-3">
     <h1 class="display-5 text-center">INGRESE LA URL A ACORTAR</h1>
     <div class="row mt-5 mb-4">
@@ -8,6 +11,7 @@
             <button class="btn btn-primary btn-block btn-lg" (click)="procesaURL()">ACEPTAR</button>
         </div>
     </div>
+    <app-spinner *ngIf="spinner"></app-spinner>
     <div *ngIf="urlProcessing" class="row">
         <div class="col-lg-8">
             <input type="text" [(ngModel)]="urlShort" class="form-control form-control-lg" placeholder="URL Acortada" disabled>
